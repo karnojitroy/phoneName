@@ -17,9 +17,11 @@
     <main>
         <section>
             <div class="flex justify-center items-center search-container">
-                <input id="search-input-field" type="text" placeholder="Search......." class="input-bordered w-full max-w-xs input" />
-                <button onclick="handleSearch()" class="text-white btn btn-success"> <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"
-                        fill="currentColor" class="opacity-70 w-4 h-4">
+                <input id="search-input-field" type="text" placeholder="Search......."
+                    class="input-bordered w-full max-w-xs input" />
+                <button onclick="handleSearch()" class="text-white btn btn-success"> <svg
+                        xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor"
+                        class="opacity-70 w-4 h-4">
                         <path fill-rule="evenodd"
                             d="M9.965 11.026a5 5 0 1 1 1.06-1.06l2.755 2.754a.75.75 0 1 1-1.06 1.06l-2.755-2.754ZM10.5 7a3.5 3.5 0 1 1-7 0 3.5 3.5 0 0 1 7 0Z"
                             clip-rule="evenodd" />
@@ -27,22 +29,23 @@
                 </button>
             </div>
         </section>
-        <section class="mx-auto px-10 container">
 
+        <section class="mx-auto px-10 container">
+            <!-- Spinner/ loader -->
+            <div id="loading-bars" class="flex flex-row justify-center items-center hidden my-20">
+                <span class="loading loading-bars loading-xs"></span>
+                <span class="loading loading-bars loading-sm"></span>
+                <span class="loading loading-bars loading-md"></span>
+                <span class="loading loading-bars loading-lg"></span>
+            </div>
+            <!-- phone display container  -->
             <div id="phone-container">
-                <!-- <div class="bg-base-100 shadow-xl w-96 card">
-                    <figure class="px-10 pt-10">
-                        <img src="https://img.daisyui.com/images/stock/photo-1606107557195-0e29a4b5b4aa.webp"
-                            alt="Shoes" class="rounded-xl" />
-                    </figure>
-                    <div class="items-center text-center card-body">
-                        <h2 class="card-title">Shoes!</h2>
-                        <p>If a dog chews shoes whose shoes does he choose?</p>
-                        <div class="card-actions">
-                            <button class="btn btn-primary">Buy Now</button>
-                        </div>
-                    </div>
-                </div> -->
+
+            </div>
+            <!-- Show all phone -->
+            <div class="flex justify-center items-center hidden mt-5" id="show-all-phone-btn">
+                <button onclick="showAllPhone()" class="text-white btn btn-success">Show All</button>
+
             </div>
         </section>
     </main>
