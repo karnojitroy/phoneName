@@ -45,9 +45,27 @@
             <!-- Show all phone -->
             <div class="flex justify-center items-center hidden mt-5" id="show-all-phone-btn">
                 <button onclick="showAllPhone()" class="text-white btn btn-success">Show All</button>
-
             </div>
         </section>
+        <!-- show details modal -->
+        <div>
+            <dialog id="show_details_modal" class="modal-bottom modal sm:modal-middle">
+                <div class="modal-box">
+                    <!-- <h3 class="font-bold text-lg">Hello!</h3>
+                    <p class="py-4">Press ESC key or click the button below to close</p> -->
+                    <div id="show-phone-detail-container" class="text-left">
+
+                    </div>
+
+                    <div class="modal-action">
+                        <form method="dialog">
+                            <!-- if there is a button in form, it will close the modal -->
+                            <button class="btn">Close</button>
+                        </form>
+                    </div>
+                </div>
+            </dialog>
+        </div>
     </main>
 
     <footer class="mt-28 text-center">

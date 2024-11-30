@@ -11,7 +11,7 @@ const displayPhone = (phones, isShowAll) => {
     // clear phone container before display new item/ adding new item
     phoneContainer.textContent = '';
     const showAllPhoneBtn = document.getElementById('show-all-phone-btn');
-    
+
     //    display hidden show all button when item is 0
     if (phones.length > 12) {
         showAllPhoneBtn.classList.remove('hidden');
@@ -41,7 +41,7 @@ const displayPhone = (phones, isShowAll) => {
                             <p>Brand: ${phone.brand}</p>
                             <p>${phone.slug}</p>
                             <div class="card-actions">
-                                <button class="btn btn-primary">Buy Now</button>
+                                <button onclick="handleDetails('${phone.slug}')" class="btn btn-primary">Details</button>
                             </div>
                         </div>
         `
@@ -70,7 +70,43 @@ const toggleLoadingBars = (isLoading) => {
         loadingBars.classList.add('hidden')
     }
 }
+// Show phone details
+const handleDetails = async (identity) => {
+    const response = await fetch(` https://openapi.programming-hero.com/api/phone/${identity}`);
+    const data = await response.json();
+    console.log(data)
+    showPhoneDetails(data.data);
+}
 
+// show phone details
+const showPhoneDetails = (phone) => {
+    console.log(phone)
+    show_details_modal.showModal();
+
+    const showPhoneDetailContainer = document.getElementById('show-phone-detail-container');
+    showPhoneDetailContainer.innerHTML = `
+    <div class="flex justify-center items-center">
+        <img src="${phone.image}" alt=""/>
+    </div>
+    <div class="mt-5">
+        <h3 class="font-bold text-2xl ">${phone.name}</h3>
+        <p>Memory: 
+            <span class="text-sm">${phone.mainFeatures.memory}</span>
+        </p>
+        <p>Storage: ${phone.mainFeatures.storage}</p>
+        <p>Display-Size: ${phone.mainFeatures.displaySize}</p>
+        <p>Slug: ${phone.slug}</p>
+        <p>Bluetooth: ${phone.others.Bluetooth}</p>
+        <p>GPS: ${phone.others.GPS}</p>
+        <p>USB: ${phone.others.USB}</p>
+        <p>WLAN: ${phone.others.WLAN}</p>
+        <p>Release-Date: ${phone.releaseDate}</p>
+    </div>
+    `
+}
+
+// show all phone
 const showAllPhone = () => {
     handleSearch(true);
 }
+
